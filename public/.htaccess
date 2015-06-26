@@ -1,0 +1,10 @@
+#rewrite没有改变用户的url，只是apache实际用的是重写后的，是改变apache的执行效果
+#这个文件中的$1和根目录.htaccess中的$1是同一个，即用户的url；这两个access效果只是让用户输入的url变短
+#最后一个规则在用户url前加了一个'/'，将_url参数传入到了index.php中
+AddDefaultCharset UTF-8
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
+</IfModule>

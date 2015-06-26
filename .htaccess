@@ -1,0 +1,6 @@
+#这个效果是在用户的url前加上public/，用户url最前面没有/，那个/算在localhost后面
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule  ^$ public/    [L]
+    RewriteRule  (.*) public/$1 [L]
+</IfModule>
