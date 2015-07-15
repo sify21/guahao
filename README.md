@@ -1,1 +1,0 @@
-This is a Gua Hao web.
